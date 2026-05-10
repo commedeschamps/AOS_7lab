@@ -1,0 +1,82 @@
+========================================================================
+Classic 5-process, 3-resource example
+========================================================================
+Test 1: Check current state safety
+Process   Allocation        Max               Need              
+----------------------------------------------------------------
+P1        [0, 1, 0]         [7, 5, 3]         [7, 4, 3]         
+P2        [2, 0, 0]         [3, 2, 2]         [1, 2, 2]         
+P3        [3, 0, 2]         [9, 0, 2]         [6, 0, 0]         
+P4        [2, 1, 1]         [2, 2, 2]         [0, 1, 1]         
+P5        [0, 0, 2]         [4, 3, 3]         [4, 3, 1]         
+Available: [3, 3, 2]
+
+Running safety algorithm...
+Initial Work = Available = [3, 3, 2]
+  P2 can finish: Need [1, 2, 2] <= Work [3, 3, 2]
+  Work after P2 releases resources: [5, 3, 2]
+  P4 can finish: Need [0, 1, 1] <= Work [5, 3, 2]
+  Work after P4 releases resources: [7, 4, 3]
+  P5 can finish: Need [4, 3, 1] <= Work [7, 4, 3]
+  Work after P5 releases resources: [7, 4, 5]
+  P1 can finish: Need [7, 4, 3] <= Work [7, 4, 5]
+  Work after P1 releases resources: [7, 5, 5]
+  P3 can finish: Need [6, 0, 0] <= Work [7, 5, 5]
+  Work after P3 releases resources: [10, 5, 7]
+Safe state: YES
+Safe sequence: P2 -> P4 -> P5 -> P1 -> P3
+
+Test 2: P1 requests [1, 0, 2]
+P1 requests [1, 0, 2]
+Current Need[P1] = [7, 4, 3]
+Current Available = [3, 3, 2]
+Decision: DENIED
+Reason: resulting state would be unsafe.
+Processes blocked in simulated state: P1, P2, P3, P4, P5
+
+Test 3: P4 requests [3, 3, 0]
+P4 requests [3, 3, 0]
+Current Need[P4] = [0, 1, 1]
+Current Available = [3, 3, 2]
+Decision: DENIED
+Reason: request exceeds the process need.
+
+Test 4: Modified unsafe state
+Process   Allocation        Max               Need              
+----------------------------------------------------------------
+P1        [0, 1, 0]         [7, 5, 3]         [7, 4, 3]         
+P2        [2, 0, 0]         [3, 2, 2]         [1, 2, 2]         
+P3        [3, 0, 2]         [9, 0, 2]         [6, 0, 0]         
+P4        [2, 1, 1]         [2, 2, 2]         [0, 1, 1]         
+P5        [0, 0, 2]         [4, 3, 3]         [4, 3, 1]         
+Available: [0, 0, 0]
+
+Running safety algorithm...
+Initial Work = Available = [0, 0, 0]
+Safe state: NO
+Processes that cannot proceed: P1, P2, P3, P4, P5
+
+========================================================================
+Custom 4-process, 2-resource example
+========================================================================
+Process   Allocation        Max               Need              
+----------------------------------------------------------------
+P1        [1, 0]            [3, 2]            [2, 2]            
+P2        [1, 1]            [2, 2]            [1, 1]            
+P3        [2, 1]            [4, 3]            [2, 2]            
+P4        [1, 0]            [2, 1]            [1, 1]            
+Available: [2, 1]
+
+Running safety algorithm...
+Initial Work = Available = [2, 1]
+  P2 can finish: Need [1, 1] <= Work [2, 1]
+  Work after P2 releases resources: [3, 2]
+  P3 can finish: Need [2, 2] <= Work [3, 2]
+  Work after P3 releases resources: [5, 3]
+  P4 can finish: Need [1, 1] <= Work [5, 3]
+  Work after P4 releases resources: [6, 3]
+  P1 can finish: Need [2, 2] <= Work [6, 3]
+  Work after P1 releases resources: [7, 3]
+Safe state: YES
+Safe sequence: P2 -> P3 -> P4 -> P1
+

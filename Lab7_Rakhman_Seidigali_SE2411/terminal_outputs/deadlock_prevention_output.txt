@@ -1,0 +1,19 @@
+Starting deadlock prevention demo with global lock ordering...
+Thread 1: requested ['A', 'B'], acquiring in global order ['A', 'B']
+Thread 1: attempting to acquire lock A
+Thread 1: acquired lock A
+Thread 2: requested ['B', 'A'], acquiring in global order ['A', 'B']
+Thread 2: attempting to acquire lock A
+Thread 1: attempting to acquire lock B
+Thread 1: acquired lock B
+Thread 1: completed critical section
+Thread 1: released lock B
+Thread 1: released lock A
+Thread 2: acquired lock A
+Thread 2: attempting to acquire lock B
+Thread 2: acquired lock B
+Thread 2: completed critical section
+Thread 2: released lock B
+Thread 2: released lock A
+Both threads completed successfully.
+Circular wait is removed because every thread acquires A before B.

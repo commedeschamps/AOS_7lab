@@ -1,0 +1,10 @@
+Starting real deadlock simulation...
+Thread 1: attempting to acquire lock A
+Thread 1: acquired lock A
+Thread 2: attempting to acquire lock B
+Thread 2: acquired lock B
+Thread 1: waiting for lock B
+Thread 2: waiting for lock A
+Deadlock detected: both threads are still alive after timeout.
+Thread 1 holds lock A and waits for lock B.
+Thread 2 holds lock B and waits for lock A.

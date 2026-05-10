@@ -1,0 +1,58 @@
+========================================================================
+Scenario 1: Classic three-process deadlock
+------------------------------------------------------------------------
+Graph nodes:
+  P1, P2, P3, R1, R2, R3
+Graph edges:
+  P1 -> R2
+  P2 -> R3
+  P3 -> R1
+  R1 -> P1
+  R2 -> P2
+  R3 -> P3
+Deadlock detected: YES
+Cycle path:
+  P1 -> R2 -> P2 -> R3 -> P3 -> R1 -> P1
+
+========================================================================
+Scenario 2: No deadlock
+------------------------------------------------------------------------
+Graph nodes:
+  P1, P2, R1
+Graph edges:
+  P2 -> R1
+  R1 -> P1
+Deadlock detected: NO
+Cycle path:
+  None
+
+========================================================================
+Scenario 3: Chain dependency without cycle
+------------------------------------------------------------------------
+Graph nodes:
+  P1, P2, P3, R1, R2
+Graph edges:
+  P2 -> R1
+  P3 -> R2
+  R1 -> P1
+  R2 -> P2
+Deadlock detected: NO
+Cycle path:
+  None
+
+========================================================================
+Scenario 4: Only two processes are deadlocked
+------------------------------------------------------------------------
+Graph nodes:
+  P1, P2, P3, P4, R1, R2, R3
+Graph edges:
+  P1 -> R2
+  P2 -> R1
+  P4 -> R3
+  R1 -> P1
+  R2 -> P2
+  R3 -> P3
+Deadlock detected: YES
+Cycle path:
+  P1 -> R2 -> P2 -> R1 -> P1
+
