@@ -1168,7 +1168,7 @@ Lock ordering is usually more predictable for prevention, while timeout recovery
 
 ## 5. Task 5 - Windows OS Observation
 
-The screenshots in this section are real observations from Windows tools. No synthetic Task Manager, Resource Monitor, or Performance Monitor data is used.
+The screenshots in this section are real observations from Windows tools.
 
 ### 5.1 Task Manager Observation
 
