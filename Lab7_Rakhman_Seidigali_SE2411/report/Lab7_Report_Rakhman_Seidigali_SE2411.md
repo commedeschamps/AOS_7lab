@@ -1,3 +1,5 @@
+**Note to Professor:** I could not submit the ZIP file through Moodle because the submission settings allowed only a PDF file. Therefore, I uploaded the complete project with the source code, screenshots, terminal outputs, and report files to GitHub: <https://github.com/commedeschamps/AOS_7lab.git>.
+
 # Laboratory Work 7: Deadlocks
 
 **Student:** Rakhman Seidigali  
