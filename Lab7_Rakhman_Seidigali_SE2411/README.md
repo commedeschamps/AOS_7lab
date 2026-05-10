@@ -41,16 +41,5 @@ python code/deadlock_recovery_observe.py
 - `terminal_outputs/` contains saved terminal output transcripts.
 - `report/` contains the Markdown and PDF versions of the lab report.
 
-## Final Packaging
 
-Create the final ZIP from the parent directory:
-
-```bash
-zip -r Lab7_Rakhman_Seidigali_SE2411.zip Lab7_Rakhman_Seidigali_SE2411
-```
-
-Final ZIP name:
-
-```text
-Lab7_Rakhman_Seidigali_SE2411.zip
 ```
